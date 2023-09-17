@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvfadhe2y7t3g"]
+
+[ext_resource type="Texture2D" uid="uid://dpuwq53gkxh03" path="res://blog-images-banner.png" id="1_y4ehc"]
+[ext_resource type="Shader" path="res://film_chromatic_both.gdshader" id="2_kgcdj"]
+[ext_resource type="Texture2D" uid="uid://b0cd1kjbxua7d" path="res://static_film_texture.tres" id="3_lwlkt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3au66"]
+shader = ExtResource("2_kgcdj")
+shader_parameter/base = Color(1, 0.933333, 0.792157, 1)
+shader_parameter/grain_strength = 0.25
+shader_parameter/fps = 8.0
+shader_parameter/stretch = 0.5
+shader_parameter/flashing = 0.01
+shader_parameter/is_mono = false
+shader_parameter/is_grain = true
+shader_parameter/r_displacement = Vector2(3, 0)
+shader_parameter/g_displacement = Vector2(0, 0)
+shader_parameter/b_displacement = Vector2(-3, 0)
+shader_parameter/is_chromatic = true
+shader_parameter/chromatic_should_animate = false
+shader_parameter/chromatic_time_multiplayer = 5.0
+shader_parameter/film_darkness = 0.22
+shader_parameter/grain = ExtResource("3_lwlkt")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(557, 314)
+texture = ExtResource("1_y4ehc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_3au66")
+offset_left = -18.0
+offset_top = -28.0
+offset_right = 1139.0
+offset_bottom = 629.0
